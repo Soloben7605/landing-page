@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ============================================================
+    HOW TO EDIT THIS PAGE
+    ============================================================
+    Search this file for "EDIT" to find every spot you need to change:
+      1. Your name, tagline and event details
+      2. Your website URL
+      3. Your LinkedIn URL
+      4. Your Instagram URL
+    Then save and push to GitHub. That's it.
+    ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- EDIT: page title and description (shown in browser tabs and link previews) -->
+  <title>Your Name — Let's Connect</title>
+  <meta name="description" content="Great to meet you! Find me on the web, LinkedIn and Instagram." />
+  <meta property="og:title" content="Your name — Let's Connect" />
+  <meta property="og:description" content="Great to meet you! Find me on the web, LinkedIn and Instagram." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --panel: #131313;
+      --panel-hover: #1a1a1a;
+      --line: #2a2a2a;
+      --gold: #d4af37;
+      --gold-light: #f1d67e;
+      --text: #f5f5f5;
+      --muted: #9a9a9a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--black);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 48px 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Soft gold glow + faint grid in the background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 45% at 50% 0%, rgba(212, 175, 55, 0.16), transparent 70%),
+        radial-gradient(ellipse 40% 30% at 100% 100%, rgba(212, 175, 55, 0.07), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 560px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 9vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+    h1 .gold {
+      background: linear-gradient(120deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      margin-top: 18px;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .divider {
+      width: 64px;
+      height: 2px;
+      margin: 36px auto;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .event {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+    .event span strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--text);
+      text-decoration: none;
+      text-align: left;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    }
+    .link:hover,
+    .link:focus-visible {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+      background: var(--panel-hover);
+      box-shadow: 0 12px 32px -12px rgba(212, 175, 55, 0.35);
+      outline: none;
+    }
+
+    .icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--gold);
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    .icon svg { width: 22px; height: 22px; }
+    .link:hover .icon,
+    .link:focus-visible .icon {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .label { flex: 1; }
+    .label .title {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .label .sub {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .arrow {
+      color: var(--muted);
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+    .arrow svg { width: 20px; height: 20px; display: block; }
+    .link:hover .arrow,
+    .link:focus-visible .arrow {
+      color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    footer {
+      margin-top: 44px;
+      font-size: 0.8rem;
+      color: #5c5c5c;
+      letter-spacing: 0.05em;
+    }
+
+    /* Gentle entrance animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    }
+    .reveal:nth-child(1) { animation-delay: 0.05s; }
+    .reveal:nth-child(2) { animation-delay: 0.15s; }
+    .reveal:nth-child(3) { animation-delay: 0.25s; }
+    .reveal:nth-child(4) { animation-delay: 0.35s; }
+    .reveal:nth-child(5) { animation-delay: 0.45s; }
+    .reveal:nth-child(6) { animation-delay: 0.55s; }
+    .reveal:nth-child(7) { animation-delay: 0.65s; }
+    @keyframes rise {
+      to { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { animation: none; opacity: 1; transform: none; }
+      .link, .arrow, .icon { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- EDIT: your name (the part inside .gold is highlighted in gold) -->
+    <h1 class="reveal">Hi, I'm <span class="gold">Ben</span></h1>
+
+    <!-- EDIT: a short line about you -->
+    <p class="tagline reveal">Great to meet you. Let's stay in touch &mdash; find me below.</p>
+
+    <div class="divider reveal"></div>
+
+    <!-- EDIT: event details (delete this whole block if you don't want it) -->
+    <div class="event reveal">
+      <span>📅 <strong>15 Oct 2026</strong></span>
+      <span>📍 <strong>Newcastle, UK</strong></span>
+    </div>
+
+    <nav class="links reveal" aria-label="My links">
+      <!-- EDIT: your website URL -->
+      <a class="link" href="https://your-website.com" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </span>
+        <span class="label">
+          <span class="title">Website</span>
+          <span class="sub">See my work &amp; what I do</span>
+        </span>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <!-- EDIT: your LinkedIn URL -->
+      <a class="link" href="https://www.linkedin.com/in/ben-hudson-b424b8383?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        </span>
+        <span class="label">
+          <span class="title">LinkedIn</span>
+          <span class="sub">Let's connect professionally</span>
+        </span>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <!-- EDIT: your Instagram URL -->
+      <a class="link" href="https://www.instagram.com/soloben7605" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg>
+        </span>
+        <span class="label">
+          <span class="title">Instagram</span>
+          <span class="sub">Follow along behind the scenes</span>
+        </span>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+    </nav>
+
+    <!-- EDIT: footer text -->
+    <footer class="reveal">&copy; <span id="year">2026</span> Your Name</footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
